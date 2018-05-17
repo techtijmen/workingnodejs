@@ -9,4 +9,4 @@ var server = http.createServer(function(req, res) { //creates node server
     res.end();
 });
 
-server.listen(8080);
+server.listen(8000);
