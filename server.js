@@ -31,7 +31,7 @@ console.log("Trying to start server with config:", config.serverip + ":" + confi
 
 // Both port and ip are needed for the OpenShift, otherwise it tries 
 // to bind server on IP 0.0.0.0 (or something) and fails
-server.listen(config.serverport, config.serverip, function() {
+server.listen(config.serverip, function() {
   console.log("Server running @ http://" + config.serverip + ":" + config.serverport);
 });
 
