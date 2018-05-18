@@ -1,8 +1,6 @@
 var http = require('http');
 var url = require('url');
-var io = require('socket.io', {
-    transports: ['websocket']
-})(http);
+var io = require('socket.io')(server);
 
 var server = http.createServer(function(req, res) { //creates node server
     res.writeHead(200, {"Content-Type": "text/html"});
