@@ -15,23 +15,18 @@ io.on('connection', function (socket) {
 });
 
 server.listen(8080);*/
-
-// Express.js stuff
-var express = require('express');
 var app = require('express')();
-var server = require('http').Server(app);
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-// Websockets with socket.io
-var io = require('socket.io')(server);
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html');
+});
 
-console.log("Trying to start server...");
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
 
-// Both port and ip are needed for the OpenShift, otherwise it tries 
-// to bind server on IP 0.0.0.0 (or something) and fails
-server.listen(8080);
-
-// And finally some websocket stuff
-io.on('connection', function (socket) { // Incoming connections from clients
-  // Greet the newcomer
-  console.log('Client Connected!');
+http.listen(3000, function(){
+  console.log('listening on *:3000');
 });
