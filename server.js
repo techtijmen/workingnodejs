@@ -20,7 +20,7 @@ server.listen(8080);*/
 var WebSocketServer = require('websocket').server;
 var http = require('http');
 
-var server = http.createServer(options, function (req, res) {
+var server = http.createServer(function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
