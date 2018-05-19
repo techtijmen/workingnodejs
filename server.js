@@ -24,13 +24,12 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
 var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-var ip = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 
 app.get('/', function(req, res){
   res.sendfile('index.html');
 });
 
-server.listen(port,ip,function() {
+server.listen(port,function() {
     console.log('listening');
 });
 
