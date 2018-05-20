@@ -16,6 +16,7 @@ io.on('connection', function (socket) {
 
 server.listen(8080);*/
 
+var express = require('express'); var app = express();
 var http = require('http');
 var fs = require('fs');
 
@@ -39,4 +40,4 @@ io.sockets.on('connection', function (socket) {
 });
 
 
-server.listen(8080);
+server.listen(process.env.OPENSHIFT_NODEJS_PORT, process.env.OPENSHIFT_NODEJS_IP);
