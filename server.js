@@ -16,7 +16,6 @@ io.on('connection', function (socket) {
 
 server.listen(8080);*/
 
-var express = require('express'); var app = express();
 var http = require('http');
 var fs = require('fs');
 
@@ -39,5 +38,8 @@ io.sockets.on('connection', function (socket) {
    console.log('A client is connected!');
 });
 
+io.sockets.on('connection', function (socket) {
+        socket.emit('message', 'You are connected!');
+});
 
 server.listen(8080);
