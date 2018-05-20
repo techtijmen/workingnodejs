@@ -40,4 +40,4 @@ io.sockets.on('connection', function (socket) {
 });
 
 
-server.listen(8080, 'http://workingnodejs-workingnodejs.193b.starter-ca-central-1.openshiftapps.com');
+server.listen(8080);
