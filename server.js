@@ -16,32 +16,27 @@ io.on('connection', function (socket) {
 
 server.listen(8080);*/
 
-#!/bin/env node
+var http = require('http');
+var fs = require('fs');
 
-var express = require('express');
-var app = express();
-var server = require('http').createServer(app);
+
+// Loading the index file . html displayed to the client
+var server = http.createServer(function(req, res) {
+    fs.readFile('./index.html', 'utf-8', function(error, content) {
+        res.writeHead(200, {"Content-Type": "text/html"});
+        res.end(content);
+    });
+
+});
+
+
+// Loading socket.io
 var io = require('socket.io').listen(server);
 
-var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-
-app.get('/', function(req, res){
-  res.sendfile('index.html');
+// When a client connects, we note it in the console
+io.sockets.on('connection', function (socket) {
+   console.log('A client is connected!');
 });
 
-server.listen(port,function() {
-    console.log('listening');
-});
 
-io.on('connection',function(socket) {
-    console.log('a user connected');
-
-    socket.on('disconnect',function() {
-        console.log('user disconnected');
-    });
-
-    socket.on('chat message',function(msg) {
-        io.emit('chat message',msg);
-    });
-
-});
+server.listen(8080);
