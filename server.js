@@ -40,4 +40,4 @@ io.sockets.on('connection', function (socket) {
 });
 
 
-server.listen(process.env.OPENSHIFT_NODEJS_PORT, process.env.OPENSHIFT_NODEJS_IP);
+server.listen(8080, 'http://workingnodejs-workingnodejs.193b.starter-ca-central-1.openshiftapps.com');
