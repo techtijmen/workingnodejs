@@ -45,3 +45,5 @@ io.sockets.on('connection', function (socket) {
 io.sockets.on('connection', function (socket) {
         socket.emit('message', 'You are connected!');
 });
+
+server.listen(8080);
