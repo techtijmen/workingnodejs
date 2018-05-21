@@ -33,10 +33,6 @@ var server = http.createServer(function(req, res) {
 // Loading socket.io
 var io = require('socket.io').listen(server);
 
-io.configure(function(){
-    io.set("transports", ["websocket"]);
-});
-
 // When a client connects, we note it in the console
 io.sockets.on('connection', function (socket) {
    console.log('A client is connected!');
